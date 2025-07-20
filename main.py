@@ -19,4 +19,7 @@ class Game:
     def draw(self):
         self.screen.fill('black')
     
-    
+    def run(self):
+        while True:
+            self.update()
+            self.draw()

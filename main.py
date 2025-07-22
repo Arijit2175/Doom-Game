@@ -20,6 +20,7 @@ class Game:
 
     def draw(self):
         self.screen.fill('black')
+        self.map.draw()
     
     def check_events(self):
         for event in pg.event.get():

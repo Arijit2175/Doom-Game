@@ -1,15 +1,17 @@
 import pygame as pg
 import sys
 from settings import *
+from map import *
 
 class Game:
     def __init__(self):
         pg.init()
         self.screen = pg.display.set_mode(RES)
         self.clock = pg.time.Clock()
+        self.new_game()
     
     def new_game(self):
-        pass
+        self.map = Map(self)
     
     def update(self):
         pg.display.flip()

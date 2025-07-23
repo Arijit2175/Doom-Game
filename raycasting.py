@@ -7,7 +7,7 @@ class RayCasting:
         self.game = game
     
     def ray_cast(self):
-        pass
+        ray_angle = self.game.player.angle - HALF_FOV + 0.0001
 
     def update(self):
         self.ray_cast()

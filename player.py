@@ -11,4 +11,7 @@ class Player:
     def movement(self):
         pass
 
+    def update(self):
+        self.movement()
+    
     

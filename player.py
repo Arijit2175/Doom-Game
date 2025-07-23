@@ -14,4 +14,8 @@ class Player:
     def update(self):
         self.movement()
     
+    @property
+    def pos(self):
+        return self.x, self.y
+    
     

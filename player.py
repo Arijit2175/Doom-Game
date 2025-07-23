@@ -9,7 +9,10 @@ class Player:
         self.angle = PLAYER_ANGLE
 
     def movement(self):
-        pass
+        sin_a = math.sin(self.angle)
+        cos_a = math.cos(self.angle)
+        dx, dy = 0, 0
+        speed = PLAYER_SPEED
 
     def update(self):
         self.movement()
@@ -22,4 +25,4 @@ class Player:
     def map_pos(self):
         return int(self.x), int(self.y)
     
-    
+

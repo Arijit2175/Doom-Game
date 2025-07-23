@@ -24,7 +24,13 @@ class RayCasting:
             delta_depth = dx / cos_a
             dy = delta_depth * sin_a
 
-            
+            for i in range(MAX_DEPTH):
+                title_vert = int(x_vert), int(y_vert)
+                if title_vert in self.game.map.world_map:
+                    break
+                x_vert += dx
+                y_vert += dy
+                depth_vert += delta_depth
 
             ray_angle += DELTA_ANGLE
 

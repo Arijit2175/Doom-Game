@@ -15,6 +15,14 @@ class RayCasting:
             sin_a = math.sin(ray_angle)
             cos_a = math.cos(ray_angle)
 
+            #horizontals
+            y_hort, dy = (y_map + 1, 1) if sin_a > 0 else (y_map - 1e-6, -1)
+            depth_hort = (y_hort - oy) / sin_a
+            x_hort = ox + depth_hort * cos_a
+            delta_depth = dy / sin_a
+            dx = delta_depth * cos_a
+            
+
             #verticals
             x_vert = (x_map + 1, 1) if cos_a > 0 else (x_map - 1e-6, -1)
 

@@ -21,7 +21,14 @@ class RayCasting:
             x_hort = ox + depth_hort * cos_a
             delta_depth = dy / sin_a
             dx = delta_depth * cos_a
-            
+
+            for i in range(MAX_DEPTH):
+                title_hort = int(x_hort), int(y_hort)
+                if title_hort in self.game.map.world_map:
+                    break
+                x_hort += dx
+                y_hort += dy
+                depth_hort += delta_depth
 
             #verticals
             x_vert = (x_map + 1, 1) if cos_a > 0 else (x_map - 1e-6, -1)

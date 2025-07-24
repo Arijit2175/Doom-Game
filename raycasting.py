@@ -47,6 +47,12 @@ class RayCasting:
                 y_vert += dy
                 depth_vert += delta_depth
 
+            #depth
+            if depth_vert < depth_hort:
+                depth = depth_vert
+            else:
+                depth = depth_hort
+
             ray_angle += DELTA_ANGLE
 
     def update(self):

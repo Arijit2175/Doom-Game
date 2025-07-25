@@ -10,8 +10,11 @@ class RayCasting:
         self.textures = self.game.object_renderer.wall_textures
     
     def ray_cast(self):
+        self.ray_casting_result = []
         ox, oy = self.game.player.pos
         x_map, y_map = self.game.player.map_pos
+
+        texture_vert, texture_hort = 1, 1
         
         ray_angle = self.game.player.angle - HALF_FOV + 0.0001
         for ray in range(NUM_RAYS):
@@ -28,6 +31,7 @@ class RayCasting:
             for i in range(MAX_DEPTH):
                 title_hort = int(x_hort), int(y_hort)
                 if title_hort in self.game.map.world_map:
+                    texture_hort = self.game.map.world_map[title_hort]
                     break
                 x_hort += dx
                 y_hort += dy
@@ -45,16 +49,21 @@ class RayCasting:
             for i in range(MAX_DEPTH):
                 title_vert = int(x_vert), int(y_vert)
                 if title_vert in self.game.map.world_map:
+                    texture_vert = self.game.map.world_map[title_vert]
                     break
                 x_vert += dx
                 y_vert += dy
                 depth_vert += delta_depth
 
-            #depth
+            #depth, texture offset
             if depth_vert < depth_hort:
-                depth = depth_vert
+                depth, texture = depth_vert, texture_vert
+                y_vert %= 1
+                offset = y_vert if cos_a > 0 else (1 - y_vert)
             else:
-                depth = depth_hort
+                depth, texture = depth_hort, texture_hort
+                x_hort %= 1
+                offset = x_hort if sin_a > 0 else (1 - x_hort)
 
             #remove fish-eye effect
             depth *= math.cos(self.game.player.angle - ray_angle)

@@ -29,6 +29,7 @@ class Game:
 
     def draw(self):
         self.screen.fill('black')
+        self.object_renderer.draw()
         #self.map.draw()
         #self.player.draw()
     

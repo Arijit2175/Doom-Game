@@ -9,7 +9,13 @@ class RayCasting:
         self.objects_to_render = []
         self.textures = self.game.object_renderer.wall_textures
     
+    def get_objects_to_render(self):
+        self.objects_to_render = []
+        for ray, values in enumerate(self.ray_casting_result):
+            depth, proj_height, texture, offset = values
+
     def ray_cast(self):
+        self.ray_casting_result = []
         self.ray_casting_result = []
         ox, oy = self.game.player.pos
         x_map, y_map = self.game.player.map_pos
@@ -63,7 +69,7 @@ class RayCasting:
             else:
                 depth, texture = depth_hort, texture_hort
                 x_hort %= 1
-                offset = x_hort if sin_a > 0 else (1 - x_hort)
+                offset = x_hort if sin_a > 0 else x_hort
 
             #remove fish-eye effect
             depth *= math.cos(self.game.player.angle - ray_angle)
@@ -71,10 +77,8 @@ class RayCasting:
             #projection
             proj_height = SCREEN_DIST / (depth + 0.0001)
 
-            #draw walls
-            color = [255 / (1 + depth ** 5 * 0.00002)] * 3
-            pg.draw.rect(self.game.screen, color,
-                         (ray * SCALE, HALF_HEIGHT - proj_height // 2, SCALE, proj_height))
+            #ray casting result
+            self.ray_casting_result.append((depth, proj_height, texture, offset))
 
             ray_angle += DELTA_ANGLE
 

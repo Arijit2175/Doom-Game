@@ -12,6 +12,13 @@ class ObjectRenderer:
     def draw(self):
         self.render_game_objects()
 
+    def draw_background(self):
+        self.sky_offset = (self.sky_offset + 4.5 * self.game.player.rel) % WIDTH
+        self.screen.blit(self.sky_image, (-self.sky_offset, 0))
+        self.screen.blit(self.sky_image, (-self.sky_offset + WIDTH, 0))
+        #floor
+        pg.draw.rect(self.screen, FLOOR_COLOR, (0, HALF_HEIGHT, WIDTH, HEIGHT))
+
     def render_game_objects(self):
         list_objects = self.game.raycasting.objects_to_render
         for depth, image, pos in list_objects:

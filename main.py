@@ -24,6 +24,7 @@ class Game:
         self.object_renderer = ObjectRenderer(self)
         self.raycasting = RayCasting(self)
         self.object_handler = ObjectHandler(self)
+        self.weapon = Weapon(self)
     
     def update(self):
         self.player.update()

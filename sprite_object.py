@@ -1,5 +1,7 @@
 import pygame as pg
 from settings import *
+import os
+from collections import deque
 
 class SpriteObject:
     def __init__(self, game, path='assets/sprites/static_sprites/candlebra.png', 
@@ -55,4 +57,3 @@ class AnimatedSprite(SpriteObject):
                  pos=(11.5, 3.5), scale=0.8, shift=0.15, animation_time=120):
         super().__init__(game, path, pos, scale, shift)
         self.animation_time = animation_time
-        

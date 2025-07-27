@@ -16,6 +16,10 @@ class SpriteObject:
         self.dx, self.dy = dx, dy
         self.theta = math.atan2(dy, dx)
 
+        delta = self.theta - self.player.angle
+        if(dx > 0 and self.player.angle > math.pi) or (dx < 0 and dy < 0):
+            delta += math.tau
+
         
 
     def update(self):

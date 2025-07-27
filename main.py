@@ -22,8 +22,7 @@ class Game:
         self.player = Player(self)
         self.object_renderer = ObjectRenderer(self)
         self.raycasting = RayCasting(self)
-        #self.static_sprite = SpriteObject(self)
-        #self.animated_sprite = AnimatedSprite(self)
+        self.object_handler = ObjectHandler(self)
     
     def update(self):
         self.player.update()

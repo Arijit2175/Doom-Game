@@ -6,5 +6,11 @@ class ObjectHandler:
         self.sprite_list = []
         self.static_sprite_path = 'assets/sprites/static_sprites/'
         self.anim_sprite_path = 'assets/sprites/animated_sprites/'
+        add_sprite = self.add_sprite
 
-    
+        #sprite map
+        add_sprite(SpriteObject(game))
+        add_sprite(AnimatedSprite(game))
+
+    def add_sprite(self, sprite):
+        self.sprite_list.append(sprite)

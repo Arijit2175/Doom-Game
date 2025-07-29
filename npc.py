@@ -81,12 +81,17 @@ class NPC(AnimatedSprite):
                 self.animate_pain()
 
             elif self.ray_cast_value:
+                self.player_search_trigger = True
+                self.animate(self.walk_images)
+                self.movement()
+
+            elif self.player_search_trigger:
                 self.animate(self.walk_images)
                 self.movement()
 
             else:
                 self.animate(self.idle_images)
-                
+
         else:
             self.animate_death()
 

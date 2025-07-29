@@ -1,4 +1,5 @@
 from sprite_object import *
+from npc import *
 
 class ObjectHandler:
     def __init__(self, game):

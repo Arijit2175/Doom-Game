@@ -68,25 +68,25 @@ class NPC(AnimatedSprite):
         cos_a = math.cos(ray_angle)
 
         # horizontals
-        y_hor, dy = (y_map + 1, 1) if sin_a > 0 else (y_map - 1e-6, -1)
+        y_hort, dy = (y_map + 1, 1) if sin_a > 0 else (y_map - 1e-6, -1)
 
-        depth_hor = (y_hor - oy) / sin_a
-        x_hor = ox + depth_hor * cos_a
+        depth_hort = (y_hort - oy) / sin_a
+        x_hort = ox + depth_hort * cos_a
 
         delta_depth = dy / sin_a
         dx = delta_depth * cos_a
 
         for i in range(MAX_DEPTH):
-            tile_hor = int(x_hor), int(y_hor)
-            if tile_hor == self.map_pos:
-                player_dist_h = depth_hor
+            tile_hort = int(x_hort), int(y_hort)
+            if tile_hort == self.map_pos:
+                player_dist_h = depth_hort
                 break
-            if tile_hor in self.game.map.world_map:
-                wall_dist_h = depth_hor
+            if tile_hort in self.game.map.world_map:
+                wall_dist_h = depth_hort
                 break
-            x_hor += dx
-            y_hor += dy
-            depth_hor += delta_depth
+            x_hort += dx
+            y_hort += dy
+            depth_hort += delta_depth
 
         # verticals
         x_vert, dx = (x_map + 1, 1) if cos_a > 0 else (x_map - 1e-6, -1)

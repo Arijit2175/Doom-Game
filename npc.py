@@ -20,4 +20,6 @@ class NPC(AnimatedSprite):
         self.alive = True
         self.pain = False
 
-    
+    def update(self):
+        self.check_animation_time()
+        self.get_sprite()

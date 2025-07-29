@@ -25,6 +25,7 @@ class NPC(AnimatedSprite):
         self.check_animation_time()
         self.get_sprite()
         self.run_logic()
+        self.draw_ray_cast()
 
     def animate_pain(self):
         self.animate(self.pain_images)

@@ -50,7 +50,7 @@ class NPC(AnimatedSprite):
                 self.check_health()
 
     def check_health(self):
-        if self.healt< 1:
+        if self.health < 1:
             self.alive = False
             self.game.sound.npc_death.play()
 

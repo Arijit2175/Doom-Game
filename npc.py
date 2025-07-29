@@ -38,6 +38,13 @@ class NPC(AnimatedSprite):
                 self.game.sound.npc_pain.play()
                 self.game.player.shot = False
                 self.pain = True
+                self.health -= self.game.weapon.damage
+                self.check_health()
+
+    def check_health(self):
+        if self.healt< 1:
+            self.alive = False
+            self.game.sound.npc_death.play()
 
     def run_logic(self):
         if self.alive:

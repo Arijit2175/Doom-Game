@@ -76,10 +76,17 @@ class NPC(AnimatedSprite):
         if self.alive:
             self.ray_cast_value = self.ray_cast_npc_player()
             self.check_hit_in_npc()
+
             if self.pain:
                 self.animate_pain()
+
+            elif self.ray_cast_value:
+                self.animate(self.walk_images)
+                self.movement()
+
             else:
                 self.animate(self.idle_images)
+                
         else:
             self.animate_death()
 

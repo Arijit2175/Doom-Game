@@ -39,7 +39,7 @@ class NPC(AnimatedSprite):
             self.y += dy
     
     def movement(self):
-        next_pos = self.game.pathfinding.get_path(self.map_pos, self.game.player.map_pos)
+        next_pos = self.game.pathfinding.find_path(self.map_pos, self.game.player.map_pos)
         next_x, next_y = next_pos
 
         #pg.draw.rect(self.game.screen, 'blue', (100 * next_x, 100 * next_y, 100, 100))

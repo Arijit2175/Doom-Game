@@ -25,7 +25,7 @@ class NPC(AnimatedSprite):
         self.check_animation_time()
         self.get_sprite()
         self.run_logic()
-        self.draw_ray_cast()
+        #self.draw_ray_cast()
 
     def animate_pain(self):
         self.animate(self.pain_images)
@@ -33,7 +33,7 @@ class NPC(AnimatedSprite):
             self.pain = False
 
     def check_hit_in_npc(self):
-        if self.game.player.shot:
+        if self.ray_cast_value and self.game.player.shot:
             if HALF_WIDTH - self.sprite_half_width < self.screen_x < HALF_WIDTH + self.sprite_half_width:
                 self.game.sound.npc_pain.play()
                 self.game.player.shot = False
@@ -41,6 +41,7 @@ class NPC(AnimatedSprite):
 
     def run_logic(self):
         if self.alive:
+            self.ray_cast_value = self.ray_cast_npc_player()
             self.check_hit_in_npc()
             if self.pain:
                 self.animate_pain()

@@ -11,4 +11,13 @@ class NPC(AnimatedSprite):
         self.idle_images = self.get_images(self.path + '/idle')
         self.pain_images = self.get_images(self.path + '/pain')
 
-        
+        self.attack_dist = randint(3, 6)
+        self.speed = 0.03
+        self.size = 10
+        self.health = 100
+        self.attack_damage = 10
+        self.accuracy = 0.15
+        self.alive = True
+        self.pain = False
+
+    

@@ -26,8 +26,12 @@ class ObjectHandler:
         add_sprite(AnimatedSprite(game, path=self.anim_sprite_path + 'red_light/0.png', pos=(12.5, 7.5)))
         add_sprite(AnimatedSprite(game, path=self.anim_sprite_path + 'red_light/0.png', pos=(9.5, 7.5)))
 
+        #npc map
+        add_npc(NPC(game))
+
     def update(self):
         [sprite.update() for sprite in self.sprite_list]
+        [npc.update() for npc in self.npc_list]
 
     def add_npc(self, npc):
         self.npc_list.append(npc)

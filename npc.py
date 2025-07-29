@@ -19,6 +19,7 @@ class NPC(AnimatedSprite):
         self.accuracy = 0.15
         self.alive = True
         self.pain = False
+        self.ray_cast_value = False
 
     def update(self):
         self.check_animation_time()

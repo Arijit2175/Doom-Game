@@ -62,6 +62,8 @@ class NPC(AnimatedSprite):
                 self.animate_pain()
             else:
                 self.animate(self.idle_images)
+        else:
+            self.animate_death()
 
     @property
     def map_pos(self):

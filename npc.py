@@ -43,10 +43,11 @@ class NPC(AnimatedSprite):
         next_x, next_y = next_pos
 
         #pg.draw.rect(self.game.screen, 'blue', (100 * next_x, 100 * next_y, 100, 100))
-        angle = math.atan2(next_y + 0.5 - self.y, next_x + 0.5 - self.x)
-        dx = math.cos(angle) * self.speed
-        dy = math.sin(angle) * self.speed
-        self.check_wall_collision(dx, dy)
+        if next_pos not in self.game.object_handler.npc_positions:
+            angle = math.atan2(next_y + 0.5 - self.y, next_x + 0.5 - self.x)
+            dx = math.cos(angle) * self.speed
+            dy = math.sin(angle) * self.speed
+            self.check_wall_collision(dx, dy)
 
 
     def animate_death(self):

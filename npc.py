@@ -1,5 +1,5 @@
 from sprite_object import *
-from random import randint, random, choice
+from random import randint, random
 
 class NPC(AnimatedSprite):
     def __init__(self, game, path='assets/sprites/npc/Imp/imp_0.png', pos=(10.5, 5.5),
@@ -27,7 +27,6 @@ class NPC(AnimatedSprite):
         self.check_animation_time()
         self.get_sprite()
         self.run_logic()
-        #self.draw_ray_cast()
 
     def check_wall(self, x, y):
         return (x, y) not in self.game.map.world_map
@@ -42,7 +41,6 @@ class NPC(AnimatedSprite):
         next_pos = self.game.pathfinding.find_path(self.map_pos, self.game.player.map_pos)
         next_x, next_y = next_pos
 
-        #pg.draw.rect(self.game.screen, 'blue', (100 * next_x, 100 * next_y, 100, 100))
         if next_pos not in self.game.object_handler.npc_positions:
             angle = math.atan2(next_y + 0.5 - self.y, next_x + 0.5 - self.x)
             dx = math.cos(angle) * self.speed
@@ -182,3 +180,8 @@ class NPC(AnimatedSprite):
         if self.ray_cast_npc_player():
             pg.draw.line(self.game.screen, 'orange', (100 * self.game.player.x, 100 * self.game.player.y),
                          (100 * self.x, 100 * self.y), 2)
+            
+class SoldierNPC(NPC):
+    def __init__(self, game, path='assets/sprites/npc/Imp/imp_0.png', pos=(10.5, 5.5),
+                 scale=0.6, shift=0.38, animation_time=180):
+        super().__init__(game, path, pos, scale, shift, animation_time)

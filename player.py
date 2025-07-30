@@ -10,7 +10,9 @@ class Player:
         self.shot = False
         self.health = PLAYER_MAX_HEALTH
 
-    
+    def get_damage(self, damage):
+        self.health -= damage
+        self.game.object_renderer.player_damage()
 
     def single_fire_event(self, event):
         if event.type == pg.MOUSEBUTTONDOWN:

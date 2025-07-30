@@ -17,6 +17,7 @@ class ObjectRenderer:
     def draw(self):
         self.draw_background()
         self.render_game_objects()
+        self.draw_player_health()
 
     def draw_player_health(self):
         health = str(self.game.player.health)

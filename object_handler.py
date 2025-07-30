@@ -14,6 +14,13 @@ class ObjectHandler:
         add_npc = self.add_npc
         self.npc_positions = {}
 
+        #spawn npc
+        self.enemies = 20  
+        self.npc_types = [ImpNPC, CacoDemonNPC, CyberDemonNPC]
+        self.weights = [70, 20, 10]
+        self.restricted_area = {(i, j) for i in range(10) for j in range(10)}
+        self.spawn_npc()
+
         #sprite map
         add_sprite(SpriteObject(game))
         add_sprite(AnimatedSprite(game))

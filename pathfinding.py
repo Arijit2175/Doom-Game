@@ -9,7 +9,8 @@ class PathFinding:
         self.graph = {}
         self.get_graph()
 
-    def find_path(self, start, goal):
+    @lru_cache
+    def get_path(self, start, goal):
         self.visited = self.bfs(start, goal, self.graph)
         path = [goal]
         step = self.visited.get(goal, start)

@@ -13,7 +13,11 @@ class Player:
         self.health_recovery_delay = 0
         self.time_prev = pg.time.get_ticks()
 
-    
+    def check_health_recovery_delay(self):
+        time_now = pg.time.get_ticks()
+        if time_now - self.time_prev > self.health_recovery_delay:
+            self.time_prev = time_now
+            return True
 
     def check_game_over(self):
         if self.health < 1:

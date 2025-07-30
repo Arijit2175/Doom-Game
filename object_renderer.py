@@ -9,6 +9,10 @@ class ObjectRenderer:
         self.sky_image = self.get_texture('assets/textures/sky.png', (WIDTH, HALF_HEIGHT))
         self.sky_offset = 0
         self.blood_screen = self.get_texture('assets/textures/blood_screen.png', RES)
+        self.digit_size = 90
+        self.digit_images = [self.get_texture(f'assets/textures/digits/{i}.png', [self.digit_size] * 2)
+                             for i in range(11)]
+        self.digits = dict(zip(map(str, range(11)), self.digit_images))
 
     def draw(self):
         self.draw_background()

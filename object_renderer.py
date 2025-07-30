@@ -13,6 +13,7 @@ class ObjectRenderer:
         self.digit_images = [self.get_texture(f'assets/textures/digits/{i}.png', [self.digit_size] * 2)
                              for i in range(11)]
         self.digits = dict(zip(map(str, range(11)), self.digit_images))
+        self.game_over_image = self.get_texture('assets/textures/game_over.png', RES)
 
     def draw(self):
         self.draw_background()

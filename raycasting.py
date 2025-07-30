@@ -33,7 +33,6 @@ class RayCasting:
 
     def ray_cast(self):
         self.ray_casting_result = []
-        self.ray_casting_result = []
         ox, oy = self.game.player.pos
         x_map, y_map = self.game.player.map_pos
 
@@ -86,7 +85,7 @@ class RayCasting:
             else:
                 depth, texture = depth_hort, texture_hort
                 x_hort %= 1
-                offset = x_hort if sin_a > 0 else x_hort
+                offset = (1 - x_hort) if sin_a > 0 else x_hort
 
             #remove fish-eye effect
             depth *= math.cos(self.game.player.angle - ray_angle)

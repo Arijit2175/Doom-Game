@@ -8,6 +8,7 @@ class ObjectRenderer:
         self.wall_textures = self.load_wall_textures()
         self.sky_image = self.get_texture('assets/textures/sky.png', (WIDTH, HALF_HEIGHT))
         self.sky_offset = 0
+        self.blood_screen = self.get_texture('assets/textures/blood_screen.png', RES)
 
     def draw(self):
         self.draw_background()

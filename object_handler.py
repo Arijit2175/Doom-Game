@@ -53,6 +53,13 @@ class ObjectHandler:
                     pos = x, y = randrange(self.game.map.cols), randrange(self.game.map.rows)
                 self.add_npc(npc(self.game, pos=(x + 0.5, y + 0.5)))
 
+    def check_win(self):
+        if not len(self.npc_positions):
+            self.game.object_renderer.win()
+            pg.display.flip()
+            pg.time.delay(1500)
+            self.game.new_game()
+
     def update(self):
         self.npc_positions = {npc.map_pos for npc in self.npc_list if npc.alive}
         [sprite.update() for sprite in self.sprite_list]

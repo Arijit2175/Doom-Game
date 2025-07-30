@@ -5,7 +5,7 @@ Used the raycaster algorithm to work out the engine.
 
 ## 📚 References 
 
-**Workflow** - https://youtu.be/ECqUrT7IdqQ?si=5gk8dW6P2KCV3HFX
+**Workflow(Followed this tutorial)** - https://youtu.be/ECqUrT7IdqQ?si=5gk8dW6P2KCV3HFX
 
 **Detailed article** - https://permadi.com/1996/05/ray-casting-tutorial-table-of-contents/
 

@@ -9,6 +9,7 @@ class Player:
         self.angle = PLAYER_ANGLE
         self.shot = False
         self.health = PLAYER_MAX_HEALTH
+        self.rel = 0
 
     def check_game_over(self):
         if self.health < 1:

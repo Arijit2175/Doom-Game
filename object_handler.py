@@ -45,6 +45,14 @@ class ObjectHandler:
         add_sprite(AnimatedSprite(game, pos=(1.5, 30.5)))
         add_sprite(AnimatedSprite(game, pos=(1.5, 24.5)))
 
+    def spawn_npc(self):
+        for i in range(self.enemies):
+                npc = choices(self.npc_types, self.weights)[0]
+                pos = x, y = randrange(self.game.map.cols), randrange(self.game.map.rows)
+                while (pos in self.game.map.world_map) or (pos in self.restricted_area):
+                    pos = x, y = randrange(self.game.map.cols), randrange(self.game.map.rows)
+                self.add_npc(npc(self.game, pos=(x + 0.5, y + 0.5)))
+
     def update(self):
         self.npc_positions = {npc.map_pos for npc in self.npc_list if npc.alive}
         [sprite.update() for sprite in self.sprite_list]

@@ -1,5 +1,6 @@
 import pygame as pg
 from settings import *
+from main import resource_path
 
 class ObjectRenderer:
     def __init__(self, game):
@@ -50,7 +51,7 @@ class ObjectRenderer:
             
     @staticmethod
     def get_texture(path, res = (TEXTURE_SIZE, TEXTURE_SIZE)):
-        texture = pg.image.load(path).convert_alpha()
+        texture = pg.image.load(resource_path(path)).convert_alpha()
         return pg.transform.scale(texture, res)
     
     def load_wall_textures(self):

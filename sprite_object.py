@@ -2,7 +2,7 @@ import pygame as pg
 from settings import *
 import os
 from collections import deque
-from main import resource_path
+from utils import resource_path
 
 class SpriteObject:
     def __init__(self, game, path='assets/sprites/static_sprites/candlebra.png', 

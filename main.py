@@ -1,6 +1,5 @@
 import pygame as pg
 import sys
-import os
 from settings import *
 from map import *
 from player import *
@@ -11,15 +10,6 @@ from object_handler import *
 from weapon import *
 from sound import *
 from pathfinding import *
-
-
-def resource_path(relative_path):
-    """Get absolute path to resource, works for dev and for PyInstaller"""
-    try:
-        base_path = sys._MEIPASS
-    except Exception:
-        base_path = os.path.abspath(".")
-    return os.path.join(base_path, relative_path)
 
 
 class Game:

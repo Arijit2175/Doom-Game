@@ -1,6 +1,6 @@
 import pygame as pg
 from settings import *
-from main import resource_path
+from utils import resource_path
 
 class ObjectRenderer:
     def __init__(self, game):
